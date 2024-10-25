@@ -251,6 +251,9 @@ static void wayland___create_window(MenuFlags menu_flags) {
   if ((menu_flags & MENU_PASSWORD) == MENU_PASSWORD) {
     CacheState.entry_history_enable = FALSE;
   }
+  if (config.disable_history) {
+    CacheState.entry_history_enable = FALSE;
+  }
   input_history_initialize();
 
   TICK_N("create cairo surface");
